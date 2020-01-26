@@ -7,5 +7,7 @@ Also
 Make sure you have following softwares Installed in your system beforehand .
 
 ### Arduino IDE
+[Download Here!] (https://www.arduino.cc/en/Main/Software)
 ### ESP-32 Driver
+[Install Driver] (https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
 
