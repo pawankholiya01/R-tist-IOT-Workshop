@@ -1,9 +1,19 @@
+  
+/*********
+ By-
+ Pawan Kholiya
+ CSE-2nd Year
+ R-tist IOT Workshop 
+ 
+ // -> Denote Comments 
+ to Improve readablity of code
+*********/
 #include <WiFi.h>
 #include <HTTPClient.h>
 
 String apiKey = "UOS9XENITOLRFETC";                 //  Enter your Write API key from ThingSpeak
-const char *ssid =  "RedmiNote";                                    // replace with your wifi ssid and wpa2 key
-const char *pass =  "12345678";
+const char *ssid =  "/*Enter your Wifi Name*/";                                    // replace with your wifi ssid and wpa2 key
+const char *pass =  "/*Enter your Wifi password*/";
 const char* server = "api.thingspeak.com";
 WiFiClient client;
 void setup() 
@@ -29,7 +39,7 @@ void loop() {
   if ((WiFi.status() == WL_CONNECTED)) { //Check the current connection status
  
     HTTPClient http;
-    int rssi= WiFi.RSSI();
+    int rssi= WiFi.RSSI(); // Wifi Signal Strength
     http.begin("http://api.thingspeak.com/update?api_key=UOS9XENITOLRFETC&field1="+String(rssi)); //Specify the URL
     int httpCode = http.GET();                                        //Make the request
  
