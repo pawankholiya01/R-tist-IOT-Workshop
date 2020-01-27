@@ -5,7 +5,6 @@
  R-tist IOT Workshop 
  
  // -> Denote Comments 
- /**/ -> Multiline Comments 
  to Improve readablity of code
 *********/
 
@@ -13,8 +12,8 @@
 #include <WiFi.h>
 
 // Replace with your network credentials
-const char* ssid     = "/*Enter your Wifi name here inside Double Quotes*/";
-const char* password = "/*Enter your Password here inside Double Quotes*/";
+const char* ssid     = "/*Enter your Wifi name here */";
+const char* password = "/*Enter your wifi password here inside double quotes*/";
 
 // Start web server at port number 80
 WiFiServer server(80);
@@ -27,17 +26,14 @@ String output26State = "off";
 String output27State = "off";
 
 // Assign output variables to GPIO pins
-const int output26 = 26;
-const int output27 = 27;
+const int output26 = LED_BUILTIN;
 
 void setup() {
   Serial.begin(115200);
   // Initialize the output variables as outputs
   pinMode(output26, OUTPUT);
-  pinMode(output27, OUTPUT);
   // Set outputs to LOW
   digitalWrite(output26, LOW);
-  digitalWrite(output27, LOW);
 
   // Connect to Wi-Fi network with SSID and password
   Serial.print("Connecting to ");
@@ -86,14 +82,6 @@ void loop(){
               Serial.println("GPIO 26 off");
               output26State = "off";
               digitalWrite(output26, LOW);
-            } else if (header.indexOf("GET /27/on") >= 0) {
-              Serial.println("GPIO 27 on");
-              output27State = "on";
-              digitalWrite(output27, HIGH);
-            } else if (header.indexOf("GET /27/off") >= 0) {
-              Serial.println("GPIO 27 off");
-              output27State = "off";
-              digitalWrite(output27, LOW);
             }
             
             // Display the HTML web page
